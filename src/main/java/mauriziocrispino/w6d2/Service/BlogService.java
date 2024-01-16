@@ -21,4 +21,17 @@ public class BlogService {
         this.blogs.add(body);
         return body;
     }
+
+    public Blog findById(int id) {
+        Blog found = null;
+        for (Blog blog : this.blogs) {
+            if (blog.getId() == id) {
+                found = blog;
+            }
+        }
+        if (found == null)
+            System.out.println(id + "non trovato");
+        return found;
+    }
+
 }

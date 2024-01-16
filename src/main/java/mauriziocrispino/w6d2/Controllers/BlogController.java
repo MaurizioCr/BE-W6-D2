@@ -15,12 +15,20 @@ public class BlogController {
     private BlogService blogService;
 
     @GetMapping
-    public List<Blog> getBlogs(){
+    public List<Blog> getBlogs() {
         return blogService.getBlogs();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED) // Status Code 201
     public Blog saveUser(@RequestBody Blog body) {
-        return blogService.save(body);}
+        return blogService.save(body);
+    }
+
+    @GetMapping("/{id}")
+    public Blog findById(@PathVariable int id) {
+        return blogService.findById(id);
+    }
+
+
 }
