@@ -20,7 +20,7 @@ public class BlogController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED) // Status Code 201
+    @ResponseStatus(HttpStatus.CREATED)
     public Blog saveUser(@RequestBody Blog body) {
         return blogService.save(body);
     }
@@ -31,4 +31,15 @@ public class BlogController {
     }
 
 
+    @PutMapping("/{id}")
+    public Blog findByAndUpdate(@PathVariable int id, @RequestBody Blog body) {
+        return this.blogService.findByIdAndUpdate(id, body);
+    }
+
+    @DeleteMapping("/{id}")
+    public void findByIdAndDelete(@PathVariable int id) {
+        this.blogService.findByIdAndDelete(id);
+    }
 }
+
+
