@@ -1,15 +1,17 @@
 package mauriziocrispino.w6d2.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 public class Author {
 
     @OneToOne (mappedBy = "author")
     private Blog blog;
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String surname;

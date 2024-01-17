@@ -1,6 +1,8 @@
 package mauriziocrispino.w6d2.Service;
 
 import mauriziocrispino.w6d2.Entities.Blog;
+import mauriziocrispino.w6d2.Repository.BlogDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,6 +12,9 @@ import java.util.Random;
 
 @Service
 public class BlogService {
+
+    @Autowired
+    BlogDAO blogDAO;
     private List<Blog> blogs= new ArrayList<>();
 
     public List<Blog> getBlogs() {

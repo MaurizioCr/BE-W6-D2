@@ -1,8 +1,6 @@
 package mauriziocrispino.w6d2.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 
 @Entity
@@ -11,6 +9,9 @@ public class Blog {
     @OneToOne
     @JoinColumn(name = "author", nullable = false, unique = true)
     private Author author;
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
     private String category;
     private String title;
