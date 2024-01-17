@@ -1,9 +1,15 @@
 package mauriziocrispino.w6d2.Entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
+
 import java.util.Date;
 
+@Entity
 public class Author {
 
+    @OneToOne (mappedBy = "author")
+    private Blog blog;
     private long id;
     private String name;
     private String surname;
@@ -17,6 +23,14 @@ public class Author {
         this.email = email;
         this.dateOfBirth = dateOfBirth;
         this.avatar = avatar;
+    }
+
+    public Blog getBlog() {
+        return blog;
+    }
+
+    public void setBlog(Blog blog) {
+        this.blog = blog;
     }
 
     public Author() {

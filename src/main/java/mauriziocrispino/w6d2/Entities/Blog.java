@@ -1,6 +1,16 @@
 package mauriziocrispino.w6d2.Entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+
+
+@Entity
 public class Blog {
+
+    @OneToOne
+    @JoinColumn(name = "author", nullable = false, unique = true)
+    private Author author;
     private long id;
     private String category;
     private String title;
@@ -19,6 +29,15 @@ public class Blog {
     public Blog(){
 
     }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
     public long getId() {
         return id;
     }
@@ -65,5 +84,18 @@ public class Blog {
 
     public void setReadingTime(String readingTime) {
         this.readingTime = readingTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Blog{" +
+                "author=" + author +
+                ", id=" + id +
+                ", category='" + category + '\'' +
+                ", title='" + title + '\'' +
+                ", cover='" + cover + '\'' +
+                ", content='" + content + '\'' +
+                ", readingTime='" + readingTime + '\'' +
+                '}';
     }
 }
